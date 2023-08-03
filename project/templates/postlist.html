@@ -17,13 +17,20 @@ PostList
    <h3> {{ next_sale|default_if_none:"Чуть позже сообщим об обновлениях!" }} </h3>
 
    <hr>
+        {% if perms.simpleapp.add_post %}
+    <a href="{% url 'post_create' %}">Добавить новость</a>
+    {% endif %}
    {% if postlist %}
        <table>
            <tr>
                <td>Название</td>
                <td>Описание</td>
                <td>Категория</td>
-               <td>Дата публикации<td>
+               <td>Дата публикации
+               <td>
+                   {% if perms.simpleapp.change_post or perms.simpleapp.delete_post %}
+                       <td>Действия<td>
+                   {% endif %}
            </tr>
 
            {% for post in postlist %}
@@ -32,6 +39,15 @@ PostList
                <td>{{ post.text|truncatechars:20 }}</td>
                <td>{{ post.category.name }}</td>
                <td>{{post.dateCreation}}</td>
+               <td>
+                   {# А здесь доступ для каждой ссылки теперь будем проверять отдельно #}
+                   {% if perms.simpleapp.change_product %}
+                       <a href="{% url 'post_update' pk=post.id %}">Изменить</a>
+                   {% endif %}
+                   {% if perms.simpleapp.delete_product %}
+                       <a href="{% url 'post_delete' post.id %}">Удалить</a>
+                   {% endif %}
+               </td>
            </tr>
            {% endfor %}
 

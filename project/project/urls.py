@@ -6,4 +6,5 @@ urlpatterns = [
     path('pages/', include('django.contrib.flatpages.urls')),
     path('news/', include('simpleapp.urls')),
     path('contacts/', include('django.contrib.flatpages.urls')),
+    path("accounts/", include("allauth.urls")),
 ]

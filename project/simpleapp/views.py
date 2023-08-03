@@ -1,11 +1,14 @@
-from datetime import datetime
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, DeleteView, UpdateView, CreateView
-from .models import Post
 from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+
+
+from datetime import datetime
+from .models import Post
 from .filters import PostFilter
 from .forms import PostForm
-from django.urls import reverse_lazy
 
 
 class PostList(ListView):
@@ -32,17 +35,20 @@ class PostDetail(DetailView):
     template_name = 'post.html'
     context_object_name = 'post'
 
-class PostCreate(CreateView):
+class PostCreate(PermissionRequiredMixin, CreateView):
+    permission_required = ('simpleapp.add_post',)
     form_class = PostForm
     model = Post
     template_name = 'post_edit.html'
 
-class PostUpdate(UpdateView):
+class PostUpdate(PermissionRequiredMixin, UpdateView):
+    permission_required = ('simpleapp.change_post',)
     form_class = PostForm
     model = Post
     template_name = 'post_edit.html'
 
-class PostDelete(DeleteView):
+class PostDelete(PermissionRequiredMixin, DeleteView):
+    permission_required = ('simpleapp.delete_product',)
     model = Post
     template_name = 'post_delete.html'
     success_url = reverse_lazy('post_list')
