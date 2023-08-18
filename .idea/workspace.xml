@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9c505a72-4c10-4cda-b812-48410e7bf11b" name="Changes" comment="" />
+    <list default="true" id="9c505a72-4c10-4cda-b812-48410e7bf11b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/project/templates/post_site_email/daily_post.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/accounts/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/accounts/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/project/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/project/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/simpleapp/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/simpleapp/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/simpleapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/simpleapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/simpleapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/simpleapp/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/simpleapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/simpleapp/views.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +25,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -23,18 +36,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/D3(пример)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/D3(пример)&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlite"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\kaaam\PycharmProjects\D3\project\simpleapp" />
@@ -77,10 +90,22 @@
       <updated>1687110448880</updated>
       <workItem from="1687110454139" duration="12593000" />
       <workItem from="1687302529771" duration="48804000" />
+      <workItem from="1692381865555" duration="3140000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
