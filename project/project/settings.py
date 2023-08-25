@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
+from celery.schedules import crontab
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -165,3 +166,18 @@ SERVER_EMAIL = "primer.bot@yandex.ru"
 MANAGERS = (
     ('Pavel', 'FisshKaa@yandex.ru'),
 )
+
+#Настройки Redis database
+CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
+CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+
+CELERY_BEAT_SCHEDULE = {
+    'send_weekly_newsletter': {
+        'task': 'your_app.tasks.send_weekly_newsletter',
+        'schedule': crontab(hour=8, minute=0, day_of_week=1),
+        'args': (),
+    },
+}

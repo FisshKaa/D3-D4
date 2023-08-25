@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c505a72-4c10-4cda-b812-48410e7bf11b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/project/templates/post_site_email/daily_post.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/project/celery.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/simpleapp/tasks.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/accounts/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/accounts/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/project/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/project/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/project/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/project/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/simpleapp/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/simpleapp/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/simpleapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/simpleapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/simpleapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/simpleapp/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/simpleapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/simpleapp/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,8 +18,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -30,6 +28,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2RO9qA78hCp1nO33TLy4mHLDfPW" />
   <component name="ProjectViewState">
@@ -91,6 +92,9 @@
       <workItem from="1687110454139" duration="12593000" />
       <workItem from="1687302529771" duration="48804000" />
       <workItem from="1692381865555" duration="3140000" />
+      <workItem from="1692944944445" duration="303000" />
+      <workItem from="1692946389273" duration="2406000" />
+      <workItem from="1692950106491" duration="4593000" />
     </task>
     <servers />
   </component>

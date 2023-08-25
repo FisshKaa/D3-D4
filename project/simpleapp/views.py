@@ -5,10 +5,12 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
 
-from datetime import datetime
+from datetime import datetime, timedelta
 from .models import Post
 from .filters import PostFilter
 from .forms import PostForm
+from .tasks import send_notification
+
 
 from django.db.models import Exists, OuterRef
 from django.views.decorators.csrf import csrf_protect
@@ -44,6 +46,14 @@ class PostCreate(PermissionRequiredMixin, CreateView):
     form_class = PostForm
     model = Post
     template_name = 'post_edit.html'
+    def create_news(self):
+        subscriptions = Subscription.objects.filter(category=Post.category)
+
+        for subscription in subscriptions:
+            send_notification.delay(
+            subscriber_email=subscription.user.email,
+            news_title=Post.title,
+        )
 
 class PostUpdate(PermissionRequiredMixin, UpdateView):
     permission_required = ('simpleapp.change_post',)
