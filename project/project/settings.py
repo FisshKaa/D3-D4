@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 from celery.schedules import crontab
+import logging
+
+logging.basicConfig(level=logging.DEBUG)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -180,4 +183,96 @@ CELERY_BEAT_SCHEDULE = {
         'schedule': crontab(hour=8, minute=0, day_of_week=1),
         'args': (),
     },
+}
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'console_formatter': {
+            'format': '%(asctime)s - %(levelname)s - %(message)s',
+            'datefmt': '%Y-%m-%d %H:%M:%S'
+        },
+        'general_formatter': {
+            'format': '%(asctime)s - %(levelname)s - %(module)s - %(message)s',
+            'datefmt': '%Y-%m-%d %H:%M:%S'
+        },
+        'errors_formatter': {
+            'format': '%(asctime)s - %(levelname)s - %(message)s - %(pathname)s - %(exc_info)s',
+            'datefmt': '%Y-%m-%d %H:%M:%S'
+        },
+        'security_formatter': {
+            'format': '%(asctime)s - %(levelname)s - %(module)s - %(message)s',
+            'datefmt': '%Y-%m-%d %H:%M:%S'
+        }
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'console_formatter',
+            'level': 'DEBUG'
+        },
+        'general_file': {
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': 'general.log',
+            'maxBytes': 1024 * 1024 * 5,  # 5 MB
+            'backupCount': 5,
+            'formatter': 'general_formatter',
+            'level': 'INFO'
+        },
+        'errors_file': {
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': 'errors.log',
+            'maxBytes': 1024 * 1024 * 5,  # 5 MB
+            'backupCount': 5,
+            'formatter': 'errors_formatter',
+            'level': 'ERROR'
+        },
+        'security_file': {
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': 'security.log',
+            'maxBytes': 1024 * 1024 * 5,  # 5 MB
+            'backupCount': 5,
+            'formatter': 'security_formatter',
+            'level': 'INFO'
+        },
+        'mail_admins': {
+            'class': 'django.utils.log.AdminEmailHandler',
+            'level': 'ERROR',
+            'formatter': 'errors_formatter'
+        }
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console', 'general_file', 'errors_file', 'mail_admins'],
+            'level': 'DEBUG',
+            'propagate': True
+        },
+        'django.request': {
+            'handlers': ['errors_file', 'mail_admins'],
+            'level': 'ERROR',
+            'propagate': False
+        },
+        'django.server': {
+            'handlers': ['errors_file', 'mail_admins'],
+            'level': 'ERROR',
+            'propagate': False
+        },
+        'django.template': {
+            'handlers': ['errors_file', 'mail_admins'],
+            'level': 'ERROR',
+            'propagate': False
+        },
+        'django.db.backends': {
+            'handlers': ['errors_file', 'mail_admins'],
+            'level': 'ERROR',
+            'propagate': False
+        },
+        'django.security': {
+            'handlers': ['security_file'],
+            'level': 'INFO',
+            'propagate': False
+        }
+    }
 }
